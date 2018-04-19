@@ -1,0 +1,8 @@
+{
+  "name": "SplitMenu",
+  "app_id": "4f1937ff",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

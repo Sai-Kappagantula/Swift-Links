@@ -1,0 +1,89 @@
+<!--
+  Generated template for the NewexpensePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+    	New Expense
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bg-image">
+
+<ion-list>
+  <ion-item>
+    <ion-label floating>Title</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-row>
+      <ion-col col-9>
+
+        <ion-item>
+          <ion-icon name="card"></ion-icon>
+             <ion-label floating>Amount</ion-label>
+              <ion-input type="text"></ion-input>
+        </ion-item>
+        </ion-col>
+        <ion-col col-3>
+
+          <ion-item>
+              <!--Currency options-->
+
+            <ion-label floating>Currency</ion-label>
+              <ion-select>
+                <ion-option value="$">&#36;</ion-option> 
+                <ion-option value="£">&#163;</ion-option>
+                <ion-option value="¥">&#165;</ion-option>
+              </ion-select>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+
+
+	<ion-item>
+
+	<ion-label><ion-icon name="person"></ion-icon>&nbsp;&nbsp;&nbsp;Which Bill</ion-label>
+	<ion-select>
+		<ion-option value="NYC">New York City</ion-option>
+		<ion-option value="Pgh">Pittsburgh</ion-option>
+	</ion-select>
+	</ion-item>
+	<ion-item>
+
+		<ion-label><ion-icon name="person"></ion-icon>&nbsp;&nbsp;&nbsp;Paid By?</ion-label>
+	</ion-item>
+	<ion-item>
+
+		<ion-label>How was it split?</ion-label>
+		<ion-select>
+   			<ion-option value="Equally">Split Equally</ion-option>
+    		<ion-option value="Shares">By Shares</ion-option>
+    		<ion-option value="Percent">Percent</ion-option>
+  		</ion-select>
+  	</ion-item>
+    <ion-label></ion-label>
+    
+  	<ion-label><ion-icon name="people"></ion-icon>&nbsp;&nbsp;&nbsp;Who Was Paid for?</ion-label>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Me
+    <ion-item>
+    <button ion-button (click)="VenmoSearch()">+</button> Add Another Person
+  </ion-item>
+
+<ion-item>
+
+  <ion-label><ion-icon name="calendar"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Date</ion-label>
+  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+</ion-item>
+</ion-list>
+    <button default ion-button item-right color="balanced" (click)="Saved()">Save</button>
+    <button ion-button color="danger" (click)="returnToBills()">Cancel</button>
+
+</ion-content>
