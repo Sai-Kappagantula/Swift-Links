@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 import { NewuserPage } from '../newuser/newuser';
 import { MainPage } from '../main/main';
-
-
+import { User } from '../../models/user';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 @Component({
@@ -12,11 +13,12 @@ import { MainPage } from '../main/main';
 })
 export class HomePage {
 
+    user = {} as User;
 
+  constructor(private afAuth: AngularFireAuth,
+  public navCtrl: NavController) {
 
-  constructor(public navCtrl: NavController) {
-
-
+    
 
   }
 
@@ -24,13 +26,22 @@ export class HomePage {
   		this.navCtrl.push(NewuserPage);
  	 }
   loginGoogle() {
-  		this.navCtrl.push(MainPage);
+
  	}
   loginFacebook() {
-		this.navCtrl.push(MainPage);
+
   	}
-  	Login(){
-  		this.navCtrl.push(MainPage);
-  	}
+  	async login(user: User){
+      try{
+        const result = this.afAuth.auth.signInWithEmailAndPassword(this.user.email, this.user.password);
+        if (result) {
+  		    this.navCtrl.push(MainPage);
+        }
+      }
+  	   catch(e){
+        console.error(e);
+       }
+
+    }
 
 }

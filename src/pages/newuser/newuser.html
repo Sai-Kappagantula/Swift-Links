@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title></ion-title>
+    <ion-title>Create An Account</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,39 +15,35 @@
 
 <ion-content padding>
 <div style="text-align:center;">
-<b>Create a New Account</b>
+
 </div>
 <ion-list>
 
   <ion-item>
   	<ion-label floating>Email</ion-label>
-  	<ion-input type="text"></ion-input>
+  	<ion-input type="email" [(ngModel)]="user.email"></ion-input>
   </ion-item>
   <ion-item>
  	<ion-label floating>First Name</ion-label>
-	<ion-input type="text"></ion-input> 
+	<ion-input type="text" [(ngModel)]="user.firstname"></ion-input> 
   </ion-item>  
   <ion-item>
   	<ion-label floating>Last Name</ion-label>
-  	<ion-input type="text"></ion-input>
+  	<ion-input type="text" [(ngModel)]="user.lastname"></ion-input>
 
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Username</ion-label>
-    <ion-input type="text"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>Password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label floating>Confirm Password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input type="password" [(ngModel)]="user.cofirmpassword"></ion-input>
   </ion-item>
 
 <div style="text-align:center;">
-	<button ion-button block color="balanced">
-		Create
+	<button ion-button block color="balanced" (click)="register(user)">
+		Register
 	</button>
 </div>

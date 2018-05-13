@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { AngularFireModule } from 'angularfire2';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -14,6 +15,8 @@ import { ExpensesPage } from '../pages/expenses/expenses';
 import { DebtsPage } from '../pages/debts/debts';
 import { VenmoSearchPage } from '../pages/venmo-search/venmo-search';
 import { NewexpensePage } from '../pages/newexpense/newexpense';
+import { FIREBASE_CONFIG } from './app.firebase.config';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 
 
@@ -32,7 +35,9 @@ import { NewexpensePage } from '../pages/newexpense/newexpense';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
